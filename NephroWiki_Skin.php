@@ -69,8 +69,8 @@ class NephroWikiSkinTemplate extends BaseTemplate {
 					>
 						<img src="<?php $this->text( 'logopath' ); ?>" alt="<?php $this->text( 'sitename' ) ?>"
 								 style="height:50px;width:auto;">
+						NephroWiki
 					</a>
-					NephroWiki
 				</div>
 				<div class="collapse navbar-collapse" id="menu">
 					<ul class="nav navbar-nav navbar-right">
