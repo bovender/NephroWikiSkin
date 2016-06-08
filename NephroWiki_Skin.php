@@ -55,6 +55,55 @@ class NephroWikiSkinTemplate extends BaseTemplate {
 								$this->html( 'headelement' ); ?>
 
 	<body style="padding:18px;">
+		<nav class="navbar navbar-default navbar-fixed-top">
+			<div class="container">
+				<div class="navbar-header">
+					<button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#menu" aria-expanded="false">
+						<span class="sr-only">Menü ein/aus</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a href="<?php echo htmlspecialchars( $this->data['nav_urls']['mainpage']['href'] ); ?>"
+						<?php echo Xml::expandAttributes( Linker::tooltipAndAccesskeyAttribs( 'p-logo' ) ) ?>
+					>
+						<img src="<?php $this->text( 'logopath' ); ?>" alt="<?php $this->text( 'sitename' ) ?>"
+								 style="height:50px;width:auto;">
+					</a>
+					NephroWiki
+				</div>
+				<div class="collapse navbar-collapse" id="menu">
+					<ul class="nav navbar-nav navbar-right">
+						<li class="dropdown">
+							<a class="dropdown-toggle" href='#' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false'>
+								Seitenwerkzeuge
+								<ul class="dropdown-menu">
+									<?php
+										foreach ( $this->data['content_navigation'] as $category => $tabs ) {
+											foreach ( $tabs as $key => $tab ) {
+												echo $this->makeListItem( $key, $tab );
+											}
+										}
+									?>
+								</ul>
+							</a>
+						</li>
+						<li>
+							<a class="dropdown-toggle" href='#' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false'>
+								Persönlich
+							<ul class="dropdown-menu">
+								<?php
+									foreach ( $this->getPersonalTools() as $key => $item ) {
+										echo $this->makeListItem( $key, $item );
+									}
+								?>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
@@ -66,20 +115,8 @@ class NephroWikiSkinTemplate extends BaseTemplate {
 					</form>
 
 					<ul>
-					<?php
-						foreach ( $this->data['content_navigation'] as $category => $tabs ) {
-							foreach ( $tabs as $key => $tab ) {
-								echo $this->makeListItem( $key, $tab );
-							}
-						}
-					?>
 					</ul>
 					<ul>
-						<?php
-							foreach ( $this->getPersonalTools() as $key => $item ) {
-								echo $this->makeListItem( $key, $item );
-							}
-						?>
 					</ul>
 					<h1 class="page-header">
 						<?php $this->html( 'title' ); ?>
