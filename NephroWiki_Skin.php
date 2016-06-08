@@ -72,11 +72,12 @@ class NephroWikiSkinTemplate extends BaseTemplate {
 					</a>
 				</div>
 				<div class="collapse navbar-collapse" id="menu">
-					<form class="navbar-form navbar-right" action="<?php $this->text( 'wgScript' ); ?>">
-						<input type="hidden" name="title" value="<?php $this->text( 'searchtitle' ) ?>" />
-						<?php
-						echo $this->makeSearchInput( array( 'id' => 'searchInput' ) );
-						echo $this->makeSearchButton( 'go', array( 'id' => 'searchGoButton', 'class' => 'searchButton' ) ); ?>
+					<form class="navbar-form navbar-left" role="search" action="<?php $this->text( 'wgScript' ); ?>">
+						<div class="form-group">
+							<input type="hidden" name="title" value="<?php $this->text( 'searchtitle' ) ?>" />
+							<?php echo $this->makeSearchInput( array( 'id' => 'searchInput', 'class' => 'form-control' ) ); ?>
+						</div>
+						<?php echo $this->makeSearchButton( 'go', array( 'id' => 'searchGoButton', 'class' => 'searchButton btn btn-default' ) ); ?>
 					</form>
 					<ul class="nav navbar-nav navbar-right">
 						<li class="dropdown">
@@ -115,13 +116,16 @@ class NephroWikiSkinTemplate extends BaseTemplate {
 					<h1 class="page-header">
 						<?php $this->html( 'title' ); ?>
 					</h1>
-					<p><?php $this->html( 'catlinks' ); ?></p>
+					<?php if ( $this->data['subtitle'] ) { ?>
+							<h5><?php $this->html( 'subtitle' ); ?></h5>
+					<?php } ?>
 				</div>
 			</div>
 
 			<div class="row bodytext">
 				<div class="col-md-12">
 					<?php $this->html( 'bodytext' ) ?>
+					<p><?php $this->html( 'catlinks' ); ?></p>
 				</div>
 			</div>
 			<div class="row data-after-content">
