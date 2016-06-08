@@ -9,7 +9,7 @@ for the private [NephroWiki][3] wiki, but can be adapted to other wikis easily.
 
 - Clone the repository into `skins/`. The master branch of this repository 
   will always be stable.
-- Add `wfLoadSkin( 'NephroWiki' );` to your `LocalSettings.php`.
+- Add `wfLoadSkin( 'NephroWikiSkin' );` to your `LocalSettings.php`.
 
 
 ## Bootstrap configuration
