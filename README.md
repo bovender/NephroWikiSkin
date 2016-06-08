@@ -7,7 +7,7 @@ for the private [NephroWiki][3] wiki, but can be adapted to other wikis easily.
 
 ## Installation
 
-- Clone the repository into `extensions/`. The master branch of this repository 
+- Clone the repository into `skins/`. The master branch of this repository 
   will always be stable.
 - Add `wfLoadSkin( 'NephroWiki' );` to your `LocalSettings.php`.
 
