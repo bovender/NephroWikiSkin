@@ -1,0 +1,37 @@
+{
+        "name": "NephroWikiSkin",
+        "author": "Daniel Kraus (bovender)",
+        "url": "https://github.com/bovender/NephroWikiSkin",
+        "descriptionmsg": "nephrowikiskin-desc",
+        "namemsg": "skinname-nephrowikiskin",
+        "license-name": "MIT",
+        "type": "skin",
+        "ValidSkinNames": {
+                "nephrowikiskin": "NephroWikiSkin"
+        },
+        "AutoloadClasses": {
+                "SkinNephroWikiSkin": "NephroWiki_Skin.php"
+        },
+        "MessagesDirs": {
+                "NephroWikiSkin": "i18n"
+        },
+        "ResourceModules": {
+                "skins.nephrowikiskin": {
+                        "styles": [
+                                "resources/css/bootstrap.css",
+                                "resources/css/bootstrap-theme.css"
+                        ]
+                },
+                "skins.nephrowikiskin.js": {
+                        "scripts": [
+                                "resources/js/bootstrap.js"
+                        ],
+                        "position": "top",
+                        "dependencies": "jquery.ui"
+                }
+        },
+        "ResourceFileModulePaths": {
+                "localBasePath": "",
+                "remoteSkinPath": "NephroWikiSkin"
+        }
+}
