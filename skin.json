@@ -19,7 +19,8 @@
                 "skins.nephrowikiskin": {
                         "styles": [
                                 "resources/css/bootstrap.css",
-                                "resources/css/bootstrap-theme.css"
+                                "resources/css/bootstrap-theme.css",
+                                "resources/css/nephrowiki.css"
                         ]
                 },
                 "skins.nephrowikiskin.js": {

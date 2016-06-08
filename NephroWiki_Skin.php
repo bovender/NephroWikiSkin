@@ -68,7 +68,7 @@ class NephroWikiSkinTemplate extends BaseTemplate {
 						<?php echo Xml::expandAttributes( Linker::tooltipAndAccesskeyAttribs( 'p-logo' ) ) ?>
 						class="navbar-brand"
 					>
-						NephroWiki
+						<?php $this->text( 'sitename' ); ?>
 					</a>
 				</div>
 				<div class="collapse navbar-collapse" id="menu">
