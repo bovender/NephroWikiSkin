@@ -66,13 +66,18 @@ class NephroWikiSkinTemplate extends BaseTemplate {
 					</button>
 					<a href="<?php echo htmlspecialchars( $this->data['nav_urls']['mainpage']['href'] ); ?>"
 						<?php echo Xml::expandAttributes( Linker::tooltipAndAccesskeyAttribs( 'p-logo' ) ) ?>
+						class="navbar-brand"
 					>
-						<img src="<?php $this->text( 'logopath' ); ?>" alt="<?php $this->text( 'sitename' ) ?>"
-								 style="height:50px;width:auto;">
 						NephroWiki
 					</a>
 				</div>
 				<div class="collapse navbar-collapse" id="menu">
+					<form class="navbar-form navbar-right" action="<?php $this->text( 'wgScript' ); ?>">
+						<input type="hidden" name="title" value="<?php $this->text( 'searchtitle' ) ?>" />
+						<?php
+						echo $this->makeSearchInput( array( 'id' => 'searchInput' ) );
+						echo $this->makeSearchButton( 'go', array( 'id' => 'searchGoButton', 'class' => 'searchButton' ) ); ?>
+					</form>
 					<ul class="nav navbar-nav navbar-right">
 						<li class="dropdown">
 							<a class="dropdown-toggle" href='#' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false'>
@@ -107,17 +112,6 @@ class NephroWikiSkinTemplate extends BaseTemplate {
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<form action="<?php $this->text( 'wgScript' ); ?>">
-						<input type="hidden" name="title" value="<?php $this->text( 'searchtitle' ) ?>" />
-						<?php
-						echo $this->makeSearchInput( array( 'id' => 'searchInput' ) );
-						echo $this->makeSearchButton( 'go', array( 'id' => 'searchGoButton', 'class' => 'searchButton' ) ); ?>
-					</form>
-
-					<ul>
-					</ul>
-					<ul>
-					</ul>
 					<h1 class="page-header">
 						<?php $this->html( 'title' ); ?>
 					</h1>
