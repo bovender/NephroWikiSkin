@@ -80,9 +80,19 @@ class NephroWikiSkinTemplate extends BaseTemplate {
 						<?php echo $this->makeSearchButton( 'go', array( 'id' => 'searchGoButton', 'class' => 'searchButton btn btn-default' ) ); ?>
 					</form>
 					<ul class="nav navbar-nav navbar-right">
+						<li>
+							<?php
+								$edit = $this->data['content_actions']['edit'];
+								$editLabel = htmlspecialchars( $edit['text'] );
+							?>
+							<a href="<?php echo htmlspecialchars( $edit['href'] ) ?>">
+								<span class="glyphicon glyphicon-pencil" aria-hidden="true" title="<?php echo $editLabel ?>" alt="<?php echo $editLabel ?>"></span>
+								<span class="sr-only"><?php echo $editLabel ?></span>
+							</a>
+						</li>
 						<li class="dropdown">
 							<a class="dropdown-toggle" href='#' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false'>
-								Seitenwerkzeuge
+								<?php echo htmlspecialchars( $this->data['content_actions']['nstab-main']['text'] ); ?>
 								<ul class="dropdown-menu">
 									<?php
 										foreach ( $this->data['content_navigation'] as $category => $tabs ) {
@@ -94,15 +104,27 @@ class NephroWikiSkinTemplate extends BaseTemplate {
 								</ul>
 							</a>
 						</li>
-						<li>
+						<li class="dropdown">
 							<a class="dropdown-toggle" href='#' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false'>
-								Persönlich
+								<?php echo( $this->getPersonalTools()['userpage']['links'][0]['text'] ); ?>
 							<ul class="dropdown-menu">
-								<?php
-									foreach ( $this->getPersonalTools() as $key => $item ) {
-										echo $this->makeListItem( $key, $item );
-									}
-								?>
+								<li role="presentation">
+									<?php $this->myPersonalIconLink( 'preferences', 'cog' ); ?>
+								</li>
+								<li role="presentation">
+									<?php $this->myPersonalIconLink( 'mytalk', 'user' ); ?>
+								</li>
+								<li role="presentation">
+									<?php $this->myPersonalIconLink( 'watchlist', 'bookmark' ); ?>
+								</li>
+								<li role="presentation">
+									<?php $this->myPersonalIconLink( 'mycontris', 'education' ); ?>
+								</li>
+								<li role="presentation"><?php $this->myPersonalLink( 'userpage', 'userpage' ); ?></li>
+								<li role="separator" class="divider"></li>
+								<li role="presentation">
+									<?php $this->myPersonalIconLink( 'logout', 'off' ); ?>
+								</li>
 							</ul>
 						</li>
 					</ul>
@@ -127,7 +149,7 @@ class NephroWikiSkinTemplate extends BaseTemplate {
 				</div>
 			</div>
 
-			<div class="row bodytext">
+			<div class="row mw-body bodytext">
 				<div class="col-md-12">
 					<?php $this->html( 'bodytext' ) ?>
 				</div>
@@ -169,7 +191,26 @@ class NephroWikiSkinTemplate extends BaseTemplate {
 
 <?php $this->printTrail(); ?>
 </body>
-				</html><?php
-				}
+</html><?php
+	}
+
+	/// Helper function that echoes a link from the personal tools.
+	private function myPersonalLink( $key, $msg = null ) {
+		$link = $this->getPersonalTools()[$key]['links'][0];
+		if ( $msg != null ) {
+			$link['msg'] = $msg;
+			unset( $link['text'] );
+		}
+		echo $this->makeLink( $key, $link );
+	}	
+
+	/// Helper function that echoes a link with a glyphicon from the personal tools.
+	private function myPersonalIconLink( $key, $icon ) {
+		$link = $this->getPersonalTools()[$key]['links'][0];
+		?><a href="<?php echo( htmlspecialchars( $link['href'] ) ); ?>">
+				<span class="glyphicon glyphicon-<?php echo( $icon ); ?>" aria-hidden="true"></span>
+				<?php echo( htmlspecialchars( $link['text'] ) ); ?>
+			</a><?php
+	}	
 }
 // vim: ts=2 noet sw=2
