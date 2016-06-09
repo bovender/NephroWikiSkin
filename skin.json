@@ -20,7 +20,8 @@
                         "styles": [
                                 "resources/css/bootstrap.css",
                                 "resources/css/bootstrap-theme.css",
-                                "resources/css/nephrowiki.css"
+                                "resources/css/mw-overrides.less",
+                                "resources/css/nephrowiki.less"
                         ]
                 },
                 "skins.nephrowikiskin.js": {
