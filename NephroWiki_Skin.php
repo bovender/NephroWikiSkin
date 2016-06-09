@@ -54,7 +54,7 @@ class NephroWikiSkinTemplate extends BaseTemplate {
 				public function execute() {
 								$this->html( 'headelement' ); ?>
 
-	<body style="padding:18px;">
+	<body>
 		<nav class="navbar navbar-default navbar-fixed-top">
 			<div class="container">
 				<div class="navbar-header">
@@ -113,7 +113,7 @@ class NephroWikiSkinTemplate extends BaseTemplate {
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<h1 class="page-header">
+					<h1 class="page-header firstHeading">
 						<?php $this->html( 'title' ); ?>
 					</h1>
 					<?php if ( $this->data['subtitle'] ) { ?>
