@@ -80,19 +80,22 @@ class NephroWikiSkinTemplate extends BaseTemplate {
 						<?php echo $this->makeSearchButton( 'go', array( 'id' => 'searchGoButton', 'class' => 'searchButton btn btn-default' ) ); ?>
 					</form>
 					<ul class="nav navbar-nav navbar-right">
-						<li>
-							<?php
-								$edit = $this->data['content_actions']['edit'];
-								$editLabel = htmlspecialchars( $edit['text'] );
-							?>
-							<a href="<?php echo htmlspecialchars( $edit['href'] ) ?>">
-								<span class="glyphicon glyphicon-pencil" aria-hidden="true" title="<?php echo $editLabel ?>" alt="<?php echo $editLabel ?>"></span>
-								<span class="sr-only"><?php echo $editLabel ?></span>
-							</a>
-						</li>
+						<?php if ( isset( $this->data['content_actions']['edit'] ) ) { ?>
+							<li>
+								<?php
+									$edit = $this->data['content_actions']['edit'];
+									$editLabel = htmlspecialchars( $edit['text'] );
+								?>
+								<a href="<?php echo htmlspecialchars( $edit['href'] ) ?>">
+									<span class="glyphicon glyphicon-pencil" aria-hidden="true" title="<?php echo $editLabel ?>" alt="<?php echo $editLabel ?>"></span>
+									<span class="sr-only"><?php echo $editLabel ?></span>
+								</a>
+							</li>
+						<?php } ?>
 						<li class="dropdown">
 							<a class="dropdown-toggle" href='#' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false'>
-								<?php echo htmlspecialchars( $this->data['content_actions']['nstab-main']['text'] ); ?>
+							<span class="glyphicon glyphicon-cog" aria-hidden="true" title="<?php echo wfMessage( 'toolbox' )->text(); ?>"></span>
+								<span class="sr-only"><?php echo wfMessage( 'toolbox' )->text(); ?></span>
 								<ul class="dropdown-menu">
 									<?php
 										foreach ( $this->data['content_navigation'] as $category => $tabs ) {
