@@ -54,7 +54,6 @@ class NephroWikiSkinTemplate extends BaseTemplate {
 				public function execute() {
 								$this->html( 'headelement' ); ?>
 
-	<body>
 		<nav class="navbar navbar-default navbar-fixed-top">
 			<div class="container">
 				<div class="navbar-header">
