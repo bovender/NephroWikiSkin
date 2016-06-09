@@ -11,8 +11,9 @@ for the private [NephroWiki][3] wiki, but can be adapted to other wikis easily.
   will always be stable.
 - [Bootstrap][1] was added as a submodule, which is not automatically included 
   when cloning this respository. Switch to `resources/bootstrap` and issue `git 
-  pull` to fetch the [Bootstrap repository][4]. Alternatively, you can download 
-  Bootstrap in a compressed file and extract it into `resources/bootstrap`.
+  submodule update --recursive` to fetch the [Bootstrap repository][4], which 
+  is approaching 100 MB...  Alternatively, you can download Bootstrap in a 
+  compressed file and extract it into `resources/bootstrap`.
 - Add `wfLoadSkin( 'NephroWikiSkin' );` to your `LocalSettings.php`.
 
 
