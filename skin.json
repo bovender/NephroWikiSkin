@@ -25,7 +25,8 @@
                 },
                 "skins.nephrowikiskin.js": {
                         "scripts": [
-                                "resources/js/bootstrap.js"
+                                "resources/js/bootstrap.js",
+                                "resources/js/nephrowiki.js"
                         ],
                         "position": "top"
                 }
