@@ -134,7 +134,7 @@ class NephroWikiSkinTemplate extends BaseTemplate {
 				</div>
 			</div>
 
-			<div class="row" style="margin-top: 18px">
+			<div class="row footer">
 				<div class="col-md-12 text-center text-muted">
 					<p style="margin:0">
 						<small>
