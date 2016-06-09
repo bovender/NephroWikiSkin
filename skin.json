@@ -19,6 +19,13 @@
                 "skins.nephrowikiskin": {
                         "styles": [
                                 "resources/css/nephrowiki.less"
+                        ],
+                        "fonts": [
+                                "resources/bootstrap/fonts/glyphicons-halflings-regular.eot",
+                                "resources/bootstrap/fonts/glyphicons-halflings-regular.svg",
+                                "resources/bootstrap/fonts/glyphicons-halflings-regular.ttf",
+                                "resources/bootstrap/fonts/glyphicons-halflings-regular.woff",
+                                "resources/bootstrap/fonts/glyphicons-halflings-regular.woff2"
                         ]
                 },
                 "skins.nephrowikiskin.js": {
