@@ -113,24 +113,29 @@ class NephroWikiSkinTemplate extends BaseTemplate {
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
+					<?php if ( $this->data['sitenotice'] ) { ?>
+						<div id="siteNotice" class="alert alert-info">
+							<?php $this->html( 'sitenotice' ); ?>
+						</div>
+					<?php } ?>
 					<h1 class="page-header firstHeading">
 						<?php $this->html( 'title' ); ?>
+						<?php if ( $this->data['subtitle'] ) { ?>
+								<small><?php $this->html( 'subtitle' ); ?></small>
+						<?php } ?>
 					</h1>
-					<?php if ( $this->data['subtitle'] ) { ?>
-							<h5><?php $this->html( 'subtitle' ); ?></h5>
-					<?php } ?>
 				</div>
 			</div>
 
 			<div class="row bodytext">
 				<div class="col-md-12">
 					<?php $this->html( 'bodytext' ) ?>
-					<p><?php $this->html( 'catlinks' ); ?></p>
 				</div>
 			</div>
 			<div class="row data-after-content">
 				<div class="col-md-12">
 					<?php $this->html( 'dataAfterContent' ); ?>
+					<p><?php $this->html( 'catlinks' ); ?></p>
 				</div>
 			</div>
 
