@@ -3,520 +3,504 @@
  * This file is based on:
  * https://www.mediawiki.org/w/load.php?debug=true&lang=en&modules=mediawiki.legacy.shared&only=styles&skin=vector
  */
-@media screen {
-	
-	/* Default style for semantic tags */
-	abbr[title],
-	.explain[title] {
-		border-bottom: 1px dotted;
-		cursor: help;
-	}
-	
-	@supports (text-decoration: underline dotted) {
-		abbr[title],
-		.explain[title] {
-			border-bottom: none;
-			text-decoration: underline dotted;
-		}
-	}
-	
-	/* Colored watchlist and recent changes numbers */
-	.mw-plusminus-pos {
-		color: #006400; /* dark green */
-	}
-	
-	.mw-plusminus-neg {
-		color: #8b0000; /* dark red */
-	}
-	
-	.mw-plusminus-null {
-		color: #aaa; /* gray */
-	}
-	
-	
-	/**
-	 * Add a bit of margin space between the preview and the toolbar.
-	 * This replaces the ugly <p><br /></p> we used to insert into the page source
-	 */
-	#wikiPreview.ontop {
-		margin-bottom: @padding-large-vertical;
-	}
-	
-	/* Stop floats from intruding into edit area in previews */
-	#editform,
-	#toolbar,
-	#wpTextbox1 {
-		clear: both;
-	}
-	
-	/**
-	 * rev_deleted stuff
-	 */
-	li span.deleted,
-	span.history-deleted {
-		text-decoration: line-through;
-		color: #888;
-		font-style: italic;
-	}
-	
-	
-	/**
-	 * Forms
-	 */
-	td.mw-label {
-		text-align: right;
-	}
-	
-	td.mw-input {
-		text-align: left;
-	}
-	
-	td.mw-submit {
-		text-align: left;
-	}
-	
-	td.mw-label {
-		vertical-align: middle;
-	}
-	
-	td.mw-submit {
-		white-space: nowrap;
-	}
-	
-	input#wpSummary {
-		width: 80%;
-		margin-bottom: 1em;
-	}
-	
-	.mw-input-with-label {
-		white-space: nowrap;
-	}
-	
-	/**
-	 * Image captions.
-	 *
-	 * This is only meant to provide the most basic of styles, visual settings shouldn't be added here.
-	 */
-	
-	/* @noflip */
-	.mw-content-ltr .thumbcaption {
-		text-align: left;
-	}
-	
-	/* @noflip */
-	.mw-content-ltr .magnify {
-		float: right;
-	}
-	
-	/* @noflip */
-	.mw-content-rtl .thumbcaption {
-		text-align: right;
-	}
-	
-	/* @noflip */
-	.mw-content-rtl .magnify {
-		float: left;
-	}
-	
-	/**
-	 * Categories
-	 */
-	#catlinks {
-		/**
-		 * Overrides text justification (user preference)
-		 * See bug 31990
-		 */
-		text-align: left;
-                .well();
-	}
-	
-	.catlinks ul {
-                .list-inline();
-	}
-	
-	.catlinks li {
-	}
-	
-	.catlinks li:first-child {
-	}
-	
-	/* (bug 5346) make category redirects italic */
-	.catlinks li a.mw-redirect {
-		font-style: italic;
-	}
-	
-	/**
-	 * Hidden categories
-	 */
-	.mw-hidden-cats-hidden {
-		display: none;
-	}
-	
-	.catlinks-allhidden {
-		display: none;
-	}
-	
-	/**
-	 * Convenience links to edit delete and protect reasons
-	 */
-	p.mw-protect-editreasons,
-	p.mw-filedelete-editreasons,
-	p.mw-delete-editreasons {
-		font-size: 90%;
-		text-align: right;
-	}
-	
-	/* Page history styling */
-	
-	/* The auto-generated edit comments */
-	.autocomment {
-		color: #808080;
-	}
-	
-	#pagehistory .history-user {
-		margin-left: 0.4em;
-		margin-right: 0.2em;
-	}
-	
-	#pagehistory li {
-		border: 1px solid #fff;
-	}
-	
-	#pagehistory li.selected {
-		background-color: #f9f9f9;
-		border: 1px dashed #aaa;
-	}
-	
-	.mw-history-revisionactions {
-		float: right;
-	}
-	
-	/** Generic minor/bot/newpage styling (recent changes) */
-	.newpage,
-	.minoredit,
-	.botedit {
-		font-weight: bold;
-	}
-	
-	/**
-	 * Recreating deleted page warning
-	 * Reupload file warning
-	 * Page protection warning
-	 * incl. log entries for these warnings
-	 */
-	div.mw-warning-with-logexcerpt {
-		padding: 3px;
-		margin-bottom: 3px;
-		border: 2px solid #2f6fab;
-		clear: both;
-	}
-	
-	div.mw-warning-with-logexcerpt ul li {
-		font-size: 90%;
-	}
-	
-	/* (show/hide) revision deletion links */
-	span.mw-revdelundel-link,
-	strong.mw-revdelundel-link {
-		font-size: 90%;
-	}
-	
-	span.mw-revdelundel-hidden,
-	input.mw-revdelundel-hidden {
-		visibility: hidden;
-	}
-	
-	td.mw-revdel-checkbox,
-	th.mw-revdel-checkbox {
-		padding-right: 10px;
-		text-align: center;
-	}
-	
-	/* red links; see bug 36276 */
-	a.new {
-		color: #ba0000;
-	}
-	
-	/* Plainlinks - this can be used to switch
-	 * off special external link styling */
-	.plainlinks a.external {
-		background: none !important;
-		padding: 0 !important;
-	}
-	
-	/* External URLs should always be treated as LTR (bug 4330) */
-	/* @noflip */ .rtl a.external.free,
-	.rtl a.external.autonumber {
-		direction: ltr;
-		unicode-bidi: embed;
-	}
-	
-	/**
-	 * wikitable class for skinning normal tables
-	 * keep in sync with commonPrint.css
-	 */
-	table.wikitable {
-		margin: 1em 0;
-		background-color: #f9f9f9;
-		border: 1px solid #aaa;
-		border-collapse: collapse;
-		color: #000;
-	}
-	
-	table.wikitable > tr > th,
-	table.wikitable > tr > td,
-	table.wikitable > * > tr > th,
-	table.wikitable > * > tr > td {
-		border: 1px solid #aaa;
-		padding: 0.2em 0.4em;
-	}
-	
-	table.wikitable > tr > th,
-	table.wikitable > * > tr > th {
-		background-color: #f2f2f2;
-		text-align: center;
-	}
-	
-	table.wikitable > caption {
-		font-weight: bold;
-	}
-	
-	/* success and error messages */
-	.error,
-	.warning,
-	.success {
-		font-size: larger;
-	}
-	
-	.error {
-		color: #c00;
-	}
-	
-	.warning {
-		color: #705000;
-	}
-	
-	.success {
-		color: #009000;
-	}
-	
-	.errorbox,
-	.warningbox,
-	.successbox {
-		border: 1px solid;
-		padding: .5em 1em;
-		margin-bottom: 1em;
-		display: inline-block;
-		zoom: 1;
-		*display: inline;
-	}
-	
-	.errorbox h2,
-	.warningbox h2,
-	.successbox h2 {
-		font-size: 1em;
-		color: inherit;
-		font-weight: bold;
-		display: inline;
-		margin: 0 .5em 0 0;
-		border: none;
-	}
-	
-	.errorbox {
-		color: #c00;
-		border-color: #fac5c5;
-		background-color: #fae3e3;
-	}
-	
-	.warningbox {
-		color: #705000;
-		border-color: #fde29b;
-		background-color: #fdf1d1;
-	}
-	
-	.successbox {
-		color: #008000;
-		border-color: #b7fdb5;
-		background-color: #e1fddf;
-	}
-	
-	/* general info/warning box for SP */
-	.mw-infobox {
-		border: 2px solid #ff7f00;
-		margin: 0.5em;
-		clear: left;
-		overflow: hidden;
-	}
-	
-	.mw-infobox-left {
-		margin: 7px;
-		float: left;
-		width: 35px;
-	}
-	
-	.mw-infobox-right {
-		margin: 0.5em 0.5em 0.5em 49px;
-	}
-	
-	/* Note on preview page */
-	.previewnote {
-		color: #c00;
-		margin-bottom: 1em;
-	}
-	
-	.previewnote p {
-		text-indent: 3em;
-		margin: 0.8em 0;
-	}
-	
-	.visualClear {
-		clear: both;
-	}
-	
-	/**
-	 * Data table style
-	 *
-	 * Transparent table with suddle borders
-	 * and blue row-highlighting.
-	 */
-	.mw-datatable {
-		border-collapse: collapse;
-	}
-	
-	.mw-datatable,
-	.mw-datatable td,
-	.mw-datatable th {
-		border: 1px solid #aaa;
-		padding: 0 0.15em 0 0.15em;
-	}
-	
-	.mw-datatable th {
-		background-color: #ddf;
-	}
-	
-	.mw-datatable td {
-		background-color: #fff;
-	}
-	
-	.mw-datatable tr:hover td {
-		background-color: #eef;
-	}
-	
-	/* Classes for Exif data display */
-	table.mw_metadata {
-		font-size: 0.8em;
-		margin-left: 0.5em;
-		margin-bottom: 0.5em;
-		width: 400px;
-	}
-	
-	table.mw_metadata caption {
-		font-weight: bold;
-	}
-	
-	table.mw_metadata th {
-		font-weight: normal;
-		text-align: center;
-	}
-	
-	table.mw_metadata td {
-		padding: 0.1em;
-	}
-	
-	table.mw_metadata {
-		border: none;
-		border-collapse: collapse;
-	}
-	
-	table.mw_metadata td,
-	table.mw_metadata th {
-		border: 1px solid #aaa;
-		padding-left: 5px;
-		padding-right: 5px;
-	}
-	
-	table.mw_metadata th {
-		background-color: #f9f9f9;
-	}
-	
-	table.mw_metadata td {
-		background-color: #fcfcfc;
-	}
-	
-	table.mw_metadata ul.metadata-langlist {
-		list-style-type: none;
-		list-style-image: none;
-		padding-right: 5px;
-		padding-left: 5px;
-		margin: 0;
-	}
-	
-	#toc ul, .toc ul {
-		margin: .3em 0;
-	}
-	
-	
-	/* tooltip styles */
-	.mw-help-field-hint {
-		display: none;
-		margin-left: 2px;
-		margin-bottom: -8px;
-		padding: 0 0 0 15px;
-		background-image: url(/w/resources/src/mediawiki.legacy/images/help-question.gif?346d8);
-		background-position: left center;
-		background-repeat: no-repeat;
-		cursor: pointer;
-		font-size: .8em;
-		text-decoration: underline;
-		color: #0645ad;
-	}
-	
-	.mw-help-field-hint:hover {
-		background-image: url(/w/resources/src/mediawiki.legacy/images/help-question-hover.gif?53eb5);
-	}
-	
-	.mw-help-field-data {
-		display: block;
-		background-color: #d6f3ff;
-		padding: 5px 8px 4px 8px;
-		border: 1px solid #5dc9f4;
-		margin-left: 20px;
-	}
-	
-	
-	/* Images */
-	
-	/* @noflip */ div.tright,
-	div.floatright,
-	table.floatright {
-		clear: right;
-		float: right;
-	}
-	
-	/* @noflip */ div.tleft,
-	div.floatleft,
-	table.floatleft {
-		float: left;
-		clear: left;
-	}
-	
-	div.floatright,
-	table.floatright,
-	div.floatleft,
-	table.floatleft {
-		position: relative;
-	}
-	
-	
-	/* Print footer should be hidden by default in screen. */
-	.printfooter {
-		display: none;
-	}
-	
-	
-	/* Display editsection links smaller and next to headings */
-	.mw-editsection,
-	.mw-editsection-like {
-                .small();
-	}
-	
+h2 {
+        border: none;
+}
+
+/* Default style for semantic tags */
+abbr[title],
+.explain[title] {
+        border-bottom: 1px dotted;
+        cursor: help;
+}
+
+@supports (text-decoration: underline dotted) {
+        abbr[title],
+        .explain[title] {
+                border-bottom: none;
+                text-decoration: underline dotted;
+        }
+}
+
+/* Colored watchlist and recent changes numbers */
+.mw-plusminus-pos {
+        color: #006400; /* dark green */
+}
+
+.mw-plusminus-neg {
+        color: #8b0000; /* dark red */
+}
+
+.mw-plusminus-null {
+        color: #aaa; /* gray */
+}
+
+
+/**
+ * Add a bit of margin space between the preview and the toolbar.
+ * This replaces the ugly <p><br /></p> we used to insert into the page source
+ */
+#wikiPreview.ontop {
+        margin-bottom: @padding-large-vertical;
+}
+
+/* Stop floats from intruding into edit area in previews */
+#editform,
+#toolbar,
+#wpTextbox1 {
+        clear: both;
+}
+
+/**
+ * rev_deleted stuff
+ */
+li span.deleted,
+span.history-deleted {
+        text-decoration: line-through;
+        color: #888;
+        font-style: italic;
+}
+
+
+/**
+ * Forms
+ */
+td.mw-label {
+        text-align: right;
+}
+
+td.mw-input {
+        text-align: left;
+}
+
+td.mw-submit {
+        text-align: left;
+}
+
+td.mw-label {
+        vertical-align: middle;
+}
+
+td.mw-submit {
+        white-space: nowrap;
+}
+
+input#wpSummary {
+        width: 80%;
+        margin-bottom: 1em;
+}
+
+.mw-input-with-label {
+        white-space: nowrap;
+}
+
+/**
+ * Image captions.
+ *
+ * This is only meant to provide the most basic of styles, visual settings shouldn't be added here.
+ */
+
+/* @noflip */
+.mw-content-ltr .thumbcaption {
+        text-align: left;
+}
+
+/* @noflip */
+.mw-content-ltr .magnify {
+        float: right;
+}
+
+/* @noflip */
+.mw-content-rtl .thumbcaption {
+        text-align: right;
+}
+
+/* @noflip */
+.mw-content-rtl .magnify {
+        float: left;
+}
+
+/**
+ * Categories
+ */
+#catlinks {
+        /**
+         * Overrides text justification (user preference)
+         * See bug 31990
+         */
+        text-align: left;
+        .well();
+}
+
+.catlinks ul {
+        .list-inline();
+}
+
+.catlinks li {
+}
+
+.catlinks li:first-child {
+}
+
+/* (bug 5346) make category redirects italic */
+.catlinks li a.mw-redirect {
+        font-style: italic;
+}
+
+/**
+ * Hidden categories
+ */
+.mw-hidden-cats-hidden {
+        display: none;
+}
+
+.catlinks-allhidden {
+        display: none;
+}
+
+/**
+ * Convenience links to edit delete and protect reasons
+ */
+p.mw-protect-editreasons,
+p.mw-filedelete-editreasons,
+p.mw-delete-editreasons {
+        font-size: 90%;
+        text-align: right;
+}
+
+/* Page history styling */
+
+/* The auto-generated edit comments */
+.autocomment {
+        color: #808080;
+}
+
+#pagehistory .history-user {
+        margin-left: 0.4em;
+        margin-right: 0.2em;
+}
+
+#pagehistory li {
+        border: 1px solid #fff;
+}
+
+#pagehistory li.selected {
+        background-color: #f9f9f9;
+        border: 1px dashed #aaa;
+}
+
+.mw-history-revisionactions {
+        float: right;
+}
+
+/** Generic minor/bot/newpage styling (recent changes) */
+.newpage,
+.minoredit,
+.botedit {
+        font-weight: bold;
+}
+
+/**
+ * Recreating deleted page warning
+ * Reupload file warning
+ * Page protection warning
+ * incl. log entries for these warnings
+ */
+div.mw-warning-with-logexcerpt {
+        padding: 3px;
+        margin-bottom: 3px;
+        border: 2px solid #2f6fab;
+        clear: both;
+}
+
+div.mw-warning-with-logexcerpt ul li {
+        font-size: 90%;
+}
+
+/* (show/hide) revision deletion links */
+span.mw-revdelundel-link,
+strong.mw-revdelundel-link {
+        font-size: 90%;
+}
+
+span.mw-revdelundel-hidden,
+input.mw-revdelundel-hidden {
+        visibility: hidden;
+}
+
+td.mw-revdel-checkbox,
+th.mw-revdel-checkbox {
+        padding-right: 10px;
+        text-align: center;
+}
+
+/* red links; see bug 36276 */
+a.new {
+        color: #ba0000;
+}
+
+/* Plainlinks - this can be used to switch
+ * off special external link styling */
+.plainlinks a.external {
+        background: none !important;
+        padding: 0 !important;
+}
+
+/* External URLs should always be treated as LTR (bug 4330) */
+/* @noflip */ .rtl a.external.free,
+.rtl a.external.autonumber {
+        direction: ltr;
+        unicode-bidi: embed;
+}
+
+/**
+ * wikitable class for skinning normal tables
+ * keep in sync with commonPrint.css
+ */
+table.wikitable {
+        .table();
+}
+
+table.wikitable > tr > th,
+table.wikitable > tr > td,
+table.wikitable > * > tr > th,
+table.wikitable > * > tr > td {
+        border: unset;
+        padding: unset;
+}
+
+table.wikitable > tr > th,
+table.wikitable > * > tr > th {
+        background-color: unset;
+        text-align: unset;
+}
+
+table.wikitable > caption {
+        font-weight: unset;
+}
+
+/* success and error messages */
+.error,
+.warning,
+.success {
+        font-size: inherit;
+}
+
+.error {
+        color: @brand-danger;
+}
+
+.warning {
+        color: @brand-warning;
+}
+
+.success {
+        color: @brand-success;
+}
+
+.errorbox,
+.warningbox,
+.successbox {
+        .alert();
+}
+
+.errorbox h2,
+.warningbox h2,
+.successbox h2 {
+        font-size: unset;
+        color: unset;
+        font-weight: unset;
+        display: unset;
+        margin: unset;
+        border: unset
+}
+
+.errorbox {
+        .alert-danger();
+}
+
+.warningbox {
+        .alert-warning();
+}
+
+.successbox {
+        .alert-success();
+}
+
+/* general info/warning box for SP */
+.mw-infobox {
+        .alert();
+        .alert-info();
+}
+
+.mw-infobox-left {
+        .pull-left();
+}
+
+.mw-infobox-right {
+        .pull-right();
+}
+
+/* Note on preview page */
+.previewnote {
+        color: #c00;
+        margin-bottom: 1em;
+}
+
+.previewnote p {
+        text-indent: 3em;
+        margin: 0.8em 0;
+}
+
+.visualClear {
+        clear: both;
+}
+
+/**
+ * Data table style
+ *
+ * Transparent table with suddle borders
+ * and blue row-highlighting.
+ */
+.mw-datatable {
+        border-collapse: collapse;
+}
+
+.mw-datatable,
+.mw-datatable td,
+.mw-datatable th {
+        border: 1px solid #aaa;
+        padding: 0 0.15em 0 0.15em;
+}
+
+.mw-datatable th {
+        background-color: #ddf;
+}
+
+.mw-datatable td {
+        background-color: #fff;
+}
+
+.mw-datatable tr:hover td {
+        background-color: #eef;
+}
+
+/* Classes for Exif data display */
+table.mw_metadata {
+        font-size: 0.8em;
+        margin-left: 0.5em;
+        margin-bottom: 0.5em;
+        width: 400px;
+}
+
+table.mw_metadata caption {
+        font-weight: bold;
+}
+
+table.mw_metadata th {
+        font-weight: normal;
+        text-align: center;
+}
+
+table.mw_metadata td {
+        padding: 0.1em;
+}
+
+table.mw_metadata {
+        border: none;
+        border-collapse: collapse;
+}
+
+table.mw_metadata td,
+table.mw_metadata th {
+        border: 1px solid #aaa;
+        padding-left: 5px;
+        padding-right: 5px;
+}
+
+table.mw_metadata th {
+        background-color: #f9f9f9;
+}
+
+table.mw_metadata td {
+        background-color: #fcfcfc;
+}
+
+table.mw_metadata ul.metadata-langlist {
+        list-style-type: none;
+        list-style-image: none;
+        padding-right: 5px;
+        padding-left: 5px;
+        margin: 0;
+}
+
+#toc ul, .toc ul {
+        margin: .3em 0;
+}
+
+
+/* tooltip styles */
+.mw-help-field-hint {
+        display: none;
+        margin-left: 2px;
+        margin-bottom: -8px;
+        padding: 0 0 0 15px;
+        background-image: url(/w/resources/src/mediawiki.legacy/images/help-question.gif?346d8);
+        background-position: left center;
+        background-repeat: no-repeat;
+        cursor: pointer;
+        font-size: .8em;
+        text-decoration: underline;
+        color: #0645ad;
+}
+
+.mw-help-field-hint:hover {
+        background-image: url(/w/resources/src/mediawiki.legacy/images/help-question-hover.gif?53eb5);
+}
+
+.mw-help-field-data {
+        display: block;
+        background-color: #d6f3ff;
+        padding: 5px 8px 4px 8px;
+        border: 1px solid #5dc9f4;
+        margin-left: 20px;
+}
+
+
+/* Images */
+
+/* @noflip */ div.tright,
+div.floatright,
+table.floatright {
+        clear: right;
+        float: right;
+}
+
+/* @noflip */ div.tleft,
+div.floatleft,
+table.floatleft {
+        float: left;
+        clear: left;
+}
+
+div.floatright,
+table.floatright,
+div.floatleft,
+table.floatleft {
+        position: relative;
+}
+
+
+/* Print footer should be hidden by default in screen. */
+.printfooter {
+        display: none;
+}
+
+
+/* Display editsection links smaller and next to headings */
+.mw-editsection,
+.mw-editsection-like {
+        .small();
+        .text-muted();
+        .pull-right();
+}
