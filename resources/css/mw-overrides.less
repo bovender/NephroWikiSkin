@@ -258,21 +258,31 @@ a.new {
  * keep in sync with commonPrint.css
  */
 table.wikitable {
-        .table();
-}
-
-table.wikitable > tr > th,
-table.wikitable > tr > td,
-table.wikitable > * > tr > th,
-table.wikitable > * > tr > td {
-        border: unset;
-        padding: unset;
-}
-
-table.wikitable > tr > th,
-table.wikitable > * > tr > th {
+        color: unset;
         background-color: unset;
-        text-align: unset;
+        border: unset;
+        border-collapse: unset;
+        .table();
+
+        tr {
+                th, td {
+                        border: unset;
+                        padding: unset;
+                        background-color: unset;
+                        text-align: unset;
+                }
+        }
+
+        tbody {
+                tr {
+                        th, td {
+                                border: unset;
+                                padding: unset;
+                                background-color: unset;
+                                text-align: unset;
+                        }
+                }
+        }
 }
 
 table.wikitable > caption {
