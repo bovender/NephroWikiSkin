@@ -93,7 +93,7 @@ class NephroWikiSkinTemplate extends BaseTemplate {
 						<?php } ?>
 						<li class="dropdown">
 							<a class="dropdown-toggle" href='#' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false'>
-							<span class="glyphicon glyphicon-cog" aria-hidden="true" title="<?php echo wfMessage( 'toolbox' )->text(); ?>"></span>
+								<span class="glyphicon glyphicon-cog" aria-hidden="true" title="<?php echo wfMessage( 'toolbox' )->text(); ?>"></span>
 								<span class="sr-only"><?php echo wfMessage( 'toolbox' )->text(); ?></span>
 								<ul class="dropdown-menu">
 									<?php
@@ -102,6 +102,20 @@ class NephroWikiSkinTemplate extends BaseTemplate {
 												echo $this->makeListItem( $key, $tab );
 											}
 										}
+									?>
+								</ul>
+							</a>
+						</li>
+						<li class="dropdown">
+							<a class="dropdown-toggle" href='#' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false'>
+								<span class="glyphicon glyphicon-info-sign" aria-hidden="true" title="<?php echo wfMessage( 'toolbox' )->text(); ?>"></span>
+								<span class="sr-only"><?php echo wfMessage( 'toolbox' )->text(); ?></span>
+								<ul class="dropdown-menu">
+									<?php
+										foreach ( $this->getToolbox() as $key => $tbitem ) {
+											echo $this->makeListItem( $key, $tbitem );
+										}
+										wfRunHooks( 'SkinTemplateToolboxEnd', array( &$this ) );
 									?>
 								</ul>
 							</a>
