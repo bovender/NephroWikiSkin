@@ -26,6 +26,7 @@ class SkinNephroWikiSkin extends SkinTemplate {
 				public function initPage( OutputPage $out ) {
 								parent::initPage( $out );
 								$out->addModules( 'skins.nephrowikiskin.js' );
+								$out->addHeadItem( 'responsive', '<meta name="viewport" content="width=device-width, initial-scale=1.0">' );
 				}
 
 				/**
