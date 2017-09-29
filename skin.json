@@ -17,9 +17,9 @@
   },
   "ResourceModules": {
     "skins.nephrowikiskin": {
-      "styles": [
-        "resources/css/nephrowiki.less"
-      ]
+      "styles": {
+        "resources/css/nephrowiki.less": { "media": "screen" }
+      }
     },
     "skins.nephrowikiskin.js": {
       "scripts": [
