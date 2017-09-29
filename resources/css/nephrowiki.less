@@ -22,23 +22,23 @@
 // Additional style definitions
 
 textarea {
-        font-family: @font-family-monospace;
+  font-family: @font-family-monospace;
 }
 
 body {
-        margin-top: 50px; // accomodate fixed-top navbar
+  margin-top: 50px; // accomodate fixed-top navbar
 }
 
 .footer {
-        margin-top: @padding-large-vertical * 2;
+  margin-top: @padding-large-vertical * 2;
 }
 
 .bodytext img {
-        .img-responsive();
+  .img-responsive();
 }
 
 .icon img {
-        display: inherit;
+  display: inherit;
 }
 
 .link-button a:link {
@@ -50,16 +50,12 @@ table {
   .table();
 }
 
-.mw-content-ltr ul, .mw-content-rtl .mw-content-ltr ul {
-  margin-left: 0;
-}
-
 @media print {
-  body {
+  @page {
     margin: 2cm 1.5cm 2cm 1.5cm;
   }
 
   .container {
-          width: auto; 
+    width: auto;
   }
 }
