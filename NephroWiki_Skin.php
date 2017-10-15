@@ -27,6 +27,17 @@
      parent::initPage( $out );
      $out->addModules( 'skins.nephrowikiskin.js' );
      $out->addHeadItem( 'responsive', '<meta name="viewport" content="width=device-width, initial-scale=1.0">' );
+     $out->addHeadItem( 'responsive', <<<EOT
+<!--[if lt IE 9]>
+%script(src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"
+  integrity="sha384-FFgGfda92tXC8nCNOxrCQ3R8x1TNkMFqDZVQdDaaJiiVbjkPBXIJBx0o7ETjy8Bh"
+  crossorigin="anonymous")
+%script(src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"
+  integrity="sha384-ZoaMbDF+4LeFxg6WdScQ9nnR1QC2MIRxA1O9KWEXQwns1G8UNyIEZIQidzb0T1fo"
+  crossorigin="anonymous")
+<![endif]-->
+EOT
+    );
    }
 
    /**
