@@ -27,7 +27,8 @@
      parent::initPage( $out );
      $out->addModules( 'skins.nephrowikiskin.js' );
      $out->addHeadItem( 'responsive', '<meta name="viewport" content="width=device-width, initial-scale=1.0">' );
-     $out->addHeadItem( 'responsive', <<<EOT
+     $out->addHeadItem( 'ieedge', '<meta http-equiv="X-UA-Compatible" content="IE=edge">');
+     $out->addHeadItem( 'ielegacy', <<<EOT
 <!--[if lt IE 9]>
 %script(src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"
   integrity="sha384-FFgGfda92tXC8nCNOxrCQ3R8x1TNkMFqDZVQdDaaJiiVbjkPBXIJBx0o7ETjy8Bh"
